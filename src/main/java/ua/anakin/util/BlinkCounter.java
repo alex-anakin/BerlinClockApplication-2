@@ -5,10 +5,10 @@ import java.util.GregorianCalendar;
 
 public class BlinkCounter {
 
-    final private Calendar calendar;
+    private final Calendar calendar;
 
     //value of DIVISOR is determined by the design of Berlin clock
-    final private int DIVISOR = 5;
+    public final int DIVISOR = 5;
 
     public BlinkCounter() {
         calendar = GregorianCalendar.getInstance();
@@ -28,5 +28,9 @@ public class BlinkCounter {
 
     public int getOneMinuteQty() {
         return calendar.get(Calendar.MINUTE) % DIVISOR;
+    }
+
+    public Calendar getCalendar() {
+        return calendar;
     }
 }

@@ -21,7 +21,7 @@ public class ShapesModel {
         initScheduler();
     }
 
-    private void showTime() {
+    protected void showTime() {
         BlinkCounter blinkCounter = new BlinkCounter();
         fiveHoursLine.showTimeField(blinkCounter.getFiveHoursQty());
         oneHoursLine.showTimeField(blinkCounter.getOneHourQty());
@@ -29,7 +29,7 @@ public class ShapesModel {
         oneMinutesLine.showTimeField(blinkCounter.getOneMinuteQty());
     }
 
-    private void initScheduler() {
+    protected void initScheduler() {
 
         schedulerService.scheduleUITask(SchedulerService.ONE_SECOND, new Runnable() {
             @Override
@@ -38,7 +38,8 @@ public class ShapesModel {
             }
         });
 
-        schedulerService.scheduleUITask((60 - Calendar.getInstance().get(Calendar.SECOND)) * SchedulerService.ONE_SECOND,
+        schedulerService.scheduleUITask(
+                (60 - Calendar.getInstance().get(Calendar.SECOND)) * SchedulerService.ONE_SECOND,
                 /*wait til the end of current minute*/
                 SchedulerService.ONE_MINUTE,
                 new Runnable() {

@@ -62,7 +62,7 @@ public class BerlinClockApplication extends Application {
         ((Pane) root.lookup(parentId)).getChildren().addAll(children);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         launch(args);
     }
 }
